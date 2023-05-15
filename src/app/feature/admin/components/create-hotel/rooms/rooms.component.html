@@ -1,0 +1,71 @@
+<h3 mat-dialog-title class="title">{{ title }}</h3>
+<mat-dialog-content>
+  <form [formGroup]="form" class="room-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Costo base</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="costoBase"
+        maxlength="20"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Costo impuestos</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="impuestos"
+        maxlength="20"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Tipo de habitación</mat-label>
+      <input
+        matInput
+        formControlName="tipo"
+        placeholder="Sencilla"
+        maxlength="20"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Cantidad maxima de personas</mat-label>
+      <input
+        matInput
+        type="number"
+        maxlength="2"
+        formControlName="maxPersonas"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Ubicación </mat-label>
+      <input
+        matInput
+        formControlName="ubicacion"
+        placeholder="Piso 1, Apartamento 104"
+        maxlength="20"
+      />
+    </mat-form-field>
+    <section class="new-form-field">
+      <label>Habilitada </label>
+      <mat-radio-group formControlName="habilitada" class="btn-values">
+        <mat-radio-button [value]="true">Si</mat-radio-button>
+        <mat-radio-button [value]="false">No</mat-radio-button>
+      </mat-radio-group>
+    </section>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button color="primary" class="cancel-btn" mat-dialog-close>
+    Cancelar
+  </button>
+  <button
+    mat-raised-button
+    class="primary-btn"
+    (click)="addRoom()"
+    cdkFocusInitial
+  >
+    Guardar
+  </button>
+</mat-dialog-actions>

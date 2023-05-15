@@ -1,0 +1,121 @@
+@import "styles/utilities/colors";
+@import "styles/mixins/button";
+.container {
+  height: 100vh;
+  width: 100%;
+}
+
+.sidenav {
+  width: auto;
+}
+
+.sidenav-content {
+  height: 100%;
+}
+
+.content {
+  margin: 50px 80px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 2.4rem;
+  color: $mulled-whine;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+  color: $mulled-whine;
+}
+
+span {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+}
+
+.subtitle {
+  margin: 15px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+  color: $mulled-whine;
+}
+
+.missing-room {
+  font-size: 16px;
+  font-weight: bold;
+  color: red;
+}
+
+.add-room {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.btn-lg {
+  @include btn;
+  background-color: $carmine-pink !important;
+}
+.register-btn {
+  @include btn;
+  background-color: $mulled-whine !important;
+  margin-right: 7px;
+}
+.cancel-btn {
+  @include btn;
+  margin-right: 10px;
+  background-color: $white !important;
+  color: $black !important;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-bottom: 1em;
+
+  & div > button {
+    margin-left: 5px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.location {
+  margin-left: 8px;
+}
+
+.rooms {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.1fr 0.1fr;
+  gap: 10px;
+  margin: 10px auto;
+  background-color: #ececec !important;
+  color: $mulled-whine !important;
+  align-self: center;
+}
+
+.icon-btn {
+  align-items: center;
+  background-color: unset;
+  border-radius: 50%;
+  border: unset;
+  cursor: pointer;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  margin: 5px;
+  width: 30px;
+
+  & > i {
+    color: $mulled-whine;
+    font-size: 16px;
+  }
+}

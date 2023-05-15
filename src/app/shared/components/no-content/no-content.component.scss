@@ -1,0 +1,23 @@
+.no-content {
+  margin-top: 20px;
+  width: inherit;
+  height: auto;
+  background: #d8d8d8;
+  color: #7f7e7e;
+  padding: 30px;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+i {
+  font-size: 70px;
+  margin-bottom: 20px;
+}
+
+span {
+  font-size: 25px;
+}

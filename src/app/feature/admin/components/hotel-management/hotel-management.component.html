@@ -1,0 +1,74 @@
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side" opened>
+    <hotel-menu></hotel-menu>
+  </mat-drawer>
+  <mat-drawer-content class="sidenav-content">
+    <section class="content">
+      <h4 class="title">Administración de Hoteles</h4>
+      <section class="actions">
+        <mat-form-field appearance="fill" class="filter">
+          <mat-label>Filtrar Hotel</mat-label>
+          <input matInput (keyup)="applyFilter($event)" />
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+        <button class="btn-lg" routerLink="new" mat-raised-button>
+          Registrar Hotel
+        </button>
+      </section>
+      <ng-container *ngIf="hotelsList; else noContent">
+        <table mat-table [dataSource]="hotelsList" class="hotel-table">
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let hotel" class="buttons">
+              <button
+                class="icon-btn"
+                (click)="deleteHotel(hotel)"
+                matTooltip="Eliminar"
+              >
+                <i class="fi fi-rr-trash"></i>
+              </button>
+              <button
+                class="icon-btn"
+                (click)="editHotel(hotel)"
+                matTooltip="Editar"
+              >
+                <i class="fi fi-rr-edit"></i>
+              </button>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let hotel">{{ hotel.nombre }}</td>
+          </ng-container>
+          <ng-container matColumnDef="location">
+            <th mat-header-cell *matHeaderCellDef>Ubicación</th>
+            <td mat-cell *matCellDef="let hotel">
+              {{ hotel.ubicacion }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="bookings">
+            <th mat-header-cell *matHeaderCellDef>Reservas</th>
+            <td mat-cell *matCellDef="let hotel">
+              {{ hotel.reservas.length }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="state">
+            <th mat-header-cell *matHeaderCellDef>Estado</th>
+            <td mat-cell *matCellDef="let hotel">
+              {{ hotel.habilitado | habilitado }}
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </ng-container>
+      <mat-paginator
+        class="paginator"
+        [pageSizeOptions]="[5, 10, 20]"
+      ></mat-paginator>
+    </section>
+    <ng-template #noContent>
+      <no-content-table> No hay datos disponibles.</no-content-table>
+    </ng-template>
+  </mat-drawer-content>
+</mat-drawer-container>

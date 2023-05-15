@@ -1,0 +1,44 @@
+@import "styles/utilities/colors";
+@import "styles/mixins/button";
+
+.new-form-field {
+  display: grid;
+  grid-template-columns: 0.6fr 0.3fr;
+  margin: 20px auto;
+  align-items: center;
+}
+.btn-values {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.room-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center !important;
+}
+
+mat-form-field {
+  margin: 0 10px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 2.4rem;
+  color: $mulled-whine;
+}
+
+.primary-btn {
+  height: 50px;
+  background-color: $carmine-pink !important;
+  color: $white !important;
+}
+
+.cancel-btn {
+  height: 50px;
+  margin-right: 10px;
+  background-color: $white !important;
+  color: $black !important;
+}

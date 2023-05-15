@@ -1,0 +1,36 @@
+@import "styles/mixins/button";
+@import "styles/utilities/colors";
+
+.cancel-btn {
+  @include btn;
+  margin-right: 10px;
+  background-color: $cadet-grey !important;
+  color: $white !important;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 2.4rem;
+  color: $carmine-pink;
+}
+
+p {
+  align-self: center;
+  font-size: 1.1rem;
+  margin: 10px 0 !important;
+}
+
+.price {
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+  color: $mulled-whine;
+}

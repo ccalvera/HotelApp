@@ -1,0 +1,57 @@
+/*
+==========================================================================
+  Text mixins
+==========================================================================
+*/
+
+// Titles H1
+@mixin text-super-title {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 7.2rem;
+}
+
+// Titles H2
+@mixin text-title {
+  font-size: 3.75rem;
+  font-weight: 700;
+  line-height: 4.5rem;
+}
+
+// Subtitle H3
+@mixin text-subtitle {
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 3.6rem;
+}
+
+// Subtitle H4
+@mixin text-title-modal {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 2.4rem;
+}
+
+@mixin text-subtitle-sm {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.8rem;
+}
+
+@mixin text-subtitle-sm-bold {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.8rem;
+}
+
+@mixin text-normal {
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.2rem;
+}
+
+@mixin text-normal-bold {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2rem;
+}

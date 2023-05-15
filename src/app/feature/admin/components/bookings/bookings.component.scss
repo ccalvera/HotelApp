@@ -1,0 +1,51 @@
+@import "styles/utilities/colors";
+
+.container {
+  height: 100vh;
+  width: 100%;
+}
+
+.sidenav {
+  width: auto;
+}
+
+.sidenav-content {
+  height: 100%;
+}
+
+.content {
+  margin: 50px 40px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 2.4rem;
+  color: $mulled-whine;
+}
+
+.icon-btn {
+  align-items: center;
+  background-color: unset;
+  border-radius: 50%;
+  border: unset;
+  cursor: pointer;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  margin: 5px;
+  width: 10px;
+  & > i {
+    color: #60686b;
+    font-size: 20px;
+  }
+}
+
+.paginator {
+  background-color: #fafafa;
+}
+
+.filter {
+  margin-top: 30px;
+  width: 400px;
+}

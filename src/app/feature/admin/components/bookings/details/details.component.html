@@ -1,0 +1,15 @@
+<h3 mat-dialog-title class="title">Reserva {{ booking.hotel }}</h3>
+<mat-dialog-content class="content">
+  <p><b> Documento: </b> {{ booking.documento }}</p>
+  <p><b>Titular:</b> {{ booking.nombreCompleto }}</p>
+  <p><b> Ubicación: </b> {{ booking.ubicacion }}</p>
+  <p><b>Personas a hospedar:</b> {{ booking.cantidadPersonas }}</p>
+  <p><b>Ingreso:</b> {{ booking.fechaInicio | date : "longDate" }}</p>
+  <p><b>Salida: </b>{{ booking.fechaFin | date : "longDate" }}</p>
+</mat-dialog-content>
+<p class="price">Costo total: {{ booking.valor | currency }}</p>
+<mat-dialog-actions align="end">
+  <button mat-button color="primary" class="cancel-btn" mat-dialog-close>
+    Salir
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,121 @@
+{
+  "hoteles": [
+    {
+      "id": "1",
+      "nombre": "Hotel Castillo Real",
+      "ubicacion": "Pereira",
+      "habilitado": true,
+      "reservas": [
+        {
+          "id": 1,
+          "documento": 101023,
+          "nombreCompleto": "Juan Pelaez",
+          "hotel": "Hotel Castillo Real",
+          "ubicacion": "Piso 1, Habitación 101",
+          "fechaInicio": "2023-05-15",
+          "fechaFin": "2023-05-20",
+          "cantidadPersonas": 2,
+          "valor": 120
+        },
+        {
+          "id": 2,
+          "documento": 101023,
+          "nombreCompleto": "Juan Pelaez",
+          "hotel": "Hotel Castillo Real",
+          "ubicacion": "Piso 2, Habitación 201",
+          "fechaInicio": "2023-06-10",
+          "fechaFin": "2023-06-15",
+          "cantidadPersonas": 1,
+          "valor": 180
+        }
+      ],
+      "habitaciones": [
+        {
+          "costoBase": 100,
+          "impuestos": 20,
+          "tipo": "Individual",
+          "habilitada": true,
+          "maxPersonas": 1,
+          "ubicacion": "Piso 1, Habitación 101"
+        },
+        {
+          "costoBase": 150,
+          "impuestos": 30,
+          "tipo": "Doble",
+          "habilitada": true,
+          "maxPersonas": 2,
+          "ubicacion": "Piso 2, Habitación 201"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "nombre": "Hotel Paraiso",
+      "ubicacion": "Cali",
+      "habilitado": true,
+      "reservas": [
+        {
+          "id": 3,
+          "documento": 101023,
+          "nombreCompleto": "Juan Pelaez",
+          "hotel": "Hotel Paraiso",
+          "ubicacion": "Piso 1, Habitación 102",
+          "fechaInicio": "2023-05-15",
+          "fechaFin": "2023-05-20",
+          "cantidadPersonas": 1,
+          "valor": 145
+        }
+      ],
+      "habitaciones": [
+        {
+          "costoBase": 120,
+          "impuestos": 25,
+          "tipo": "Individual",
+          "habilitada": true,
+          "maxPersonas": 1,
+          "ubicacion": "Piso 1, Habitación 102"
+        },
+        {
+          "costoBase": 180,
+          "impuestos": 35,
+          "tipo": "Doble",
+          "habilitada": false,
+          "maxPersonas": 2,
+          "ubicacion": "Piso 2, Habitación 202"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "nombre": "Hotel Floral",
+      "ubicacion": "Popayan",
+      "habilitado": true,
+      "reservas": [],
+      "habitaciones": [
+        {
+          "costoBase": 120,
+          "impuestos": 25,
+          "tipo": "Individual",
+          "habilitada": true,
+          "maxPersonas": 1,
+          "ubicacion": "Piso 1, Habitación 102"
+        },
+        {
+          "costoBase": 180,
+          "impuestos": 35,
+          "tipo": "Doble",
+          "habilitada": false,
+          "maxPersonas": 2,
+          "ubicacion": "Piso 2, Habitación 202"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "email": "diego@gmail.com",
+      "password": "$2a$10$UHSh4v6s7NMJUXEo5prcn.Ph4xZDqUyisl5.geXE8rmp78hKjH3gG",
+      "id": 1
+    }
+  ]
+}

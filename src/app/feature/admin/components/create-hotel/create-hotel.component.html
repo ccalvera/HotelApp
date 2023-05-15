@@ -1,0 +1,89 @@
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side" opened>
+    <hotel-menu></hotel-menu>
+  </mat-drawer>
+  <mat-drawer-content class="sidenav-content">
+    <section class="content">
+      <h4 class="title">Nuevo Hotel</h4>
+      <mat-card>
+        <mat-card-title class="subtitle"
+          >Ingrese los datos del nuevo hotel</mat-card-title
+        >
+        <mat-card-content>
+          <form [formGroup]="hotelForm" class="form">
+            <mat-form-field appearance="fill">
+              <mat-label>Nombre del hotel</mat-label>
+              <input matInput formControlName="nombre" />
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Ubicación</mat-label>
+              <input matInput formControlName="ubicacion" />
+            </mat-form-field>
+            <section class="new-form-field">
+              <label>Habilitado </label>
+              <mat-radio-group formControlName="habilitado" class="btn-values">
+                <mat-radio-button [value]="true">Si</mat-radio-button>
+                <mat-radio-button [value]="false">No</mat-radio-button>
+              </mat-radio-group>
+            </section>
+            <section class="add-room">
+              <section class="header">
+                <h3>Habitaciones</h3>
+                <button
+                  mat-raised-button
+                  class="btn-lg"
+                  color="primary"
+                  (click)="registerRoom()"
+                >
+                  Registrar Habitación
+                </button>
+              </section>
+              <mat-card *ngFor="let room of rooms" class="rooms">
+                <span class="location">{{ room.ubicacion }}</span>
+                <span>{{ room.habilitada | habilitado }}</span>
+                <button class="icon-btn" type="button" (click)="editRoom(room)">
+                  <i class="fi fi-rr-edit"></i>
+                </button>
+                <button
+                  class="icon-btn"
+                  type="button"
+                  (click)="deleteRoom(room)"
+                >
+                  <i class="fi fi-rr-trash"></i>
+                </button>
+              </mat-card>
+              <span
+                *ngIf="rooms.length === 0"
+                [ngClass]="{ 'missing-room': missingRoom }"
+                >Registre las habitaciones</span
+              >
+            </section>
+          </form>
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button mat-button class="cancel-btn" (click)="cancel()">
+            Cancelar
+          </button>
+          <button
+            *ngIf="!editMode"
+            mat-button
+            color="primary"
+            class="register-btn"
+            (click)="registerHotel()"
+          >
+            Registrar Hotel
+          </button>
+          <button
+            *ngIf="editMode"
+            mat-button
+            color="primary"
+            class="register-btn"
+            (click)="editHotel()"
+          >
+            Editar Hotel
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </section>
+  </mat-drawer-content>
+</mat-drawer-container>

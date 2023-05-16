@@ -8,25 +8,40 @@
       "reservas": [
         {
           "id": 1,
-          "documento": 101023,
-          "nombreCompleto": "Juan Pelaez",
           "hotel": "Hotel Castillo Real",
           "ubicacion": "Piso 1, Habitación 101",
           "fechaInicio": "2023-05-15",
           "fechaFin": "2023-05-20",
           "cantidadPersonas": 2,
-          "valor": 120
-        },
-        {
-          "id": 2,
-          "documento": 101023,
-          "nombreCompleto": "Juan Pelaez",
-          "hotel": "Hotel Castillo Real",
-          "ubicacion": "Piso 2, Habitación 201",
-          "fechaInicio": "2023-06-10",
-          "fechaFin": "2023-06-15",
-          "cantidadPersonas": 1,
-          "valor": 180
+          "valor": 120,
+          "pasajeros": [
+            {
+              "tipoDocumento": "Cedula de ciudadania",
+              "documento": 101023,
+              "nombres": "Juan",
+              "apellidos": "Pelaez Vasquez",
+              "fechaNacimiento": "1989-05-15",
+              "genero": "Masculino",
+              "email": "Juan@gmail.com",
+              "telefono": "3135252252"
+            },
+            {
+              "tipoDocumento": "Cedula de ciudadania",
+              "documento": 101023,
+              "nombres": "Maria",
+              "apellidos": "Lopez Lopez",
+              "fechaNacimiento": "1989-07-15",
+              "genero": "Femenino",
+              "email": "maria@gmail.com",
+              "telefono": "3125252252"
+            }
+          ],
+          "contactoEmergencia": [
+            {
+              "nombreCompleto": "Jorge Pelaez",
+              "telefono": 101023
+            }
+          ]
         }
       ],
       "habitaciones": [
@@ -45,6 +60,14 @@
           "habilitada": true,
           "maxPersonas": 2,
           "ubicacion": "Piso 2, Habitación 201"
+        },
+        {
+          "costoBase": 150,
+          "impuestos": 30,
+          "tipo": "Doble",
+          "habilitada": true,
+          "maxPersonas": 2,
+          "ubicacion": "Piso 3, Habitación 302"
         }
       ]
     },
@@ -63,7 +86,35 @@
           "fechaInicio": "2023-05-15",
           "fechaFin": "2023-05-20",
           "cantidadPersonas": 1,
-          "valor": 145
+          "valor": 145,
+          "pasajeros": [
+            {
+              "tipoDocumento": "Cedula de ciudadania",
+              "documento": 101023,
+              "nombres": "Juan",
+              "apellidos": "Pelaez Vasquez",
+              "fechaNacimiento": "1989-05-15",
+              "genero": "Masculino",
+              "email": "Juan@gmail.com",
+              "telefono": "3135252252"
+            },
+            {
+              "tipoDocumento": "Cedula de ciudadania",
+              "documento": 101023,
+              "nombres": "Maria",
+              "apellidos": "Lopez Lopez",
+              "fechaNacimiento": "1989-07-15",
+              "genero": "Femenino",
+              "email": "maria@gmail.com",
+              "telefono": "3125252252"
+            }
+          ],
+          "contactoEmergencia": [
+            {
+              "nombreCompleto": "Jorge Pelaez",
+              "telefono": 101023
+            }
+          ]
         }
       ],
       "habitaciones": [
@@ -89,14 +140,14 @@
       "id": "3",
       "nombre": "Hotel Floral",
       "ubicacion": "Popayan",
-      "habilitado": true,
+      "habilitado": false,
       "reservas": [],
       "habitaciones": [
         {
           "costoBase": 120,
           "impuestos": 25,
           "tipo": "Individual",
-          "habilitada": true,
+          "habilitada": false,
           "maxPersonas": 1,
           "ubicacion": "Piso 1, Habitación 102"
         },
@@ -104,7 +155,7 @@
           "costoBase": 180,
           "impuestos": 35,
           "tipo": "Doble",
-          "habilitada": false,
+          "habilitada": true,
           "maxPersonas": 2,
           "ubicacion": "Piso 2, Habitación 202"
         }

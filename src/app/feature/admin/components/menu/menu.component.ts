@@ -10,6 +10,11 @@ export class MenuComponent {
   constructor(private readonly router: Router) {}
 
   goTo(site: any) {
-    this.router.navigate([site]);
+    this.router.navigate(['admin/' + site]);
+  }
+
+  finishSesion() {
+    localStorage.removeItem('token');
+    this.router.navigate(['admin/login']);
   }
 }

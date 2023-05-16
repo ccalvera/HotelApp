@@ -176,7 +176,7 @@ export class CreateHotelComponent {
               icon: 'success',
             });
             this.hotelForm.reset();
-            this.router.navigate(['']);
+            this.router.navigate(['admin/']);
           }
         });
     } else {
@@ -190,7 +190,8 @@ export class CreateHotelComponent {
   editHotel() {
     this.hotelService.editHotel(this.hotelForm.value).subscribe(() => {
       this.hotelForm.reset();
-      this.router.navigate(['']);
+      this.editHotelService.sentDataForm(null);
+      this.router.navigate(['admin/']);
       this.sweetAlert.fireToast({
         title: 'Edición exitosa',
         icon: 'success',
@@ -200,6 +201,7 @@ export class CreateHotelComponent {
 
   cancel() {
     this.hotelForm.reset();
-    this.router.navigate(['']);
+    this.editHotelService.sentDataForm(null);
+    this.router.navigate(['admin/']);
   }
 }

@@ -1,0 +1,74 @@
+<h3 mat-dialog-title class="title">¡Finaliza llenando los siguientes datos!</h3>
+<mat-dialog-content class="container">
+  <form *ngFor="let pasajero of getIterations(); let i = index">
+    <p class="subtitle">Pasajero {{ i + 1 }}</p>
+    <section class="form">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombres</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Apellidos</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Tipo de documento</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let type of documentType" [value]="type.value">
+            {{ type.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Número de documento</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha de nacimiento</mat-label>
+        <input matInput [matDatepicker]="picker" />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Genero</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Telefono</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </section>
+  </form>
+
+  <p>Contacto de emergencia</p>
+  <form class="form" [formGroup]="emergencyContactForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombreCompleto" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Telefono</mat-label>
+      <input matInput formControlName="telefono" />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button color="primary" class="cancel-btn" mat-dialog-close>
+    Cancelar
+  </button>
+  <button
+    mat-raised-button
+    class="primary-btn"
+    (click)="reserve()"
+    cdkFocusInitial
+  >
+    Reservar
+  </button>
+</mat-dialog-actions>

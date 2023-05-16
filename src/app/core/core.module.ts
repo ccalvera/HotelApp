@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { SecurityGuard } from './guard/security.guard';
 import { TokenInterceptor } from './interceptor/token-interceptor';
 import { HttpService } from './services/http.service';
-import { AuthInterceptor } from './interceptor/auth-interceptor';
 
 @NgModule({
   declarations: [],
@@ -15,7 +14,6 @@ import { AuthInterceptor } from './interceptor/auth-interceptor';
     HttpService,
     SecurityGuard,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
 })
 export class CoreModule {}

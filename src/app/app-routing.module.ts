@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SecurityGuard } from '@core/guard/security.guard';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'admin',
     loadChildren: () =>
       import('@admin/admin.module').then((mod) => mod.AdminModule),
-    canActivate: [SecurityGuard],
+  },
+  {
+    path: '',
+    loadChildren: () =>
+      import('@user/user.module').then((mod) => mod.UserModule),
   },
 ];
 

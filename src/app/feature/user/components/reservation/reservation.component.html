@@ -1,1 +1,93 @@
-<p>reservation works!</p>
+<header>
+  <img src="assets/images/logo-menu-no-text.png" alt="Menu logo" />
+  <h3>HAPPYTRAVEL</h3>
+</header>
+<body>
+  <p class="subtitle">¡Bienvenido a tu proximo destino!</p>
+  <p class="info-text">
+    Selecciona los siguientes campos para validar disponibilidad
+  </p>
+  <form class="data-booking" [formGroup]="reservationForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Fechas de hospedaje</mat-label>
+      <mat-date-range-input [rangePicker]="picker" [dateFilter]="myFilter">
+        <input matStartDate formControlName="initDate" placeholder="Llegada" />
+        <input matEndDate formControlName="finishDate" placeholder="Salida" />
+      </mat-date-range-input>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Número de personas</mat-label>
+      <input
+        matInput
+        type="number"
+        maxlength="3"
+        formControlName="people"
+        placeholder="Ej. 2"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Ciudad de destino</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="destination"
+        placeholder="Ej. Pereira"
+      />
+    </mat-form-field>
+    <button
+      mat-raised-button
+      class="btn-lg"
+      (click)="findHotel()"
+      color="primary"
+    >
+      Buscar
+    </button>
+  </form>
+  <ng-container *ngIf="searched; else noSearch">
+    <ng-container *ngIf="filteredHotels; else noContent">
+      <table mat-table [dataSource]="filteredHotels" class="hotel-table">
+        <ng-container matColumnDef="hotel">
+          <th mat-header-cell *matHeaderCellDef>Hotel</th>
+          <td mat-cell *matCellDef="let hotel">{{ hotel.nombre }}</td>
+        </ng-container>
+        <ng-container matColumnDef="location">
+          <th mat-header-cell *matHeaderCellDef>Ubicación</th>
+          <td mat-cell *matCellDef="let hotel">{{ hotel.ubicacion }}</td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Disponibilidad</th>
+          <td mat-cell *matCellDef="let hotel" class="buttons">
+            <button
+              class="icon-btn"
+              (click)="reserve(hotel)"
+              matTooltip="Reservas"
+            >
+              <i class="fi fi-rr-file-circle-info"></i>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </ng-container>
+  </ng-container>
+  <mat-paginator
+    class="paginator"
+    [pageSizeOptions]="[5, 10, 20]"
+  ></mat-paginator>
+  <ng-template #noContent>
+    <no-content-table>
+      No se encuentran hoteles disponibles para los datos
+      ingresados.</no-content-table
+    >
+  </ng-template>
+  <ng-template #noSearch>
+    <no-content-table> Ingrese datos de busqueda.</no-content-table>
+  </ng-template>
+</body>

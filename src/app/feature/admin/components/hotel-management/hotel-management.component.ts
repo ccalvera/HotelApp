@@ -54,7 +54,7 @@ export class HotelManagementComponent implements OnInit {
 
   editHotel(hotel: Hotel) {
     this.editHotelService.sentDataForm(hotel);
-    this.router.navigate(['new']);
+    this.router.navigate(['admin/new']);
   }
 
   deleteHotel(hotel: Hotel) {

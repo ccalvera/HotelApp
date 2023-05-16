@@ -1,11 +1,30 @@
 <h3 mat-dialog-title class="title">Reserva {{ booking.hotel }}</h3>
+<section *ngFor="let booking of booking.pasajeros" class="passengers">
+  <p><b>Documento: </b> {{ booking.documento }}</p>
+  <p><b>Nombre:</b> {{ booking.nombres }} {{ booking.apellidos }}</p>
+  <p><b>Email:</b> {{ booking.email }}</p>
+  <p><b>Telefono:</b> {{ booking.telefono }}</p>
+  <mat-divider></mat-divider>
+  <mat-divider></mat-divider>
+</section>
 <mat-dialog-content class="content">
-  <p><b> Documento: </b> {{ booking.documento }}</p>
-  <p><b>Titular:</b> {{ booking.nombreCompleto }}</p>
-  <p><b> Ubicación: </b> {{ booking.ubicacion }}</p>
-  <p><b>Personas a hospedar:</b> {{ booking.cantidadPersonas }}</p>
-  <p><b>Ingreso:</b> {{ booking.fechaInicio | date : "longDate" }}</p>
-  <p><b>Salida: </b>{{ booking.fechaFin | date : "longDate" }}</p>
+  <p class="booking-data"><b> Ubicación: </b> {{ booking.ubicacion }}</p>
+  <p class="booking-data">
+    <b>Personas a hospedar:</b> {{ booking.cantidadPersonas }}
+  </p>
+  <p class="booking-data">
+    <b>Ingreso:</b> {{ booking.fechaInicio | date : "longDate" }}
+  </p>
+  <p class="booking-data">
+    <b>Salida: </b>{{ booking.fechaFin | date : "longDate" }}
+  </p>
+  <p class="booking-data">
+    <b>Contacto emergencia:</b>
+    {{ booking.contactoEmergencia[0].nombreCompleto }}
+  </p>
+  <p class="booking-data">
+    <b>Telefono emergencia:</b> {{ booking.contactoEmergencia[0].telefono }}
+  </p>
 </mat-dialog-content>
 <p class="price">Costo total: {{ booking.valor | currency }}</p>
 <mat-dialog-actions align="end">

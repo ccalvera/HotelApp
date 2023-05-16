@@ -1,7 +1,7 @@
 import { LoginService } from '@admin/shared/services/login.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { SweetAlertService } from '@core/services/sweet-alert.service';
 
 @Component({
@@ -42,8 +42,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.loginForm.value).subscribe(
       (succes) => {
         localStorage.setItem('token', succes.accessToken);
-        this.router.navigate(['']);
-        this.loginService.userLog(succes);
+        this.router.navigate(['admin/']);
       },
       (error) => {
         this.sweetAlertService.fireToast({

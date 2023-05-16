@@ -50,12 +50,11 @@ export class BookingsComponent implements OnInit {
     });
     this.bookingList = new MatTableDataSource<Reserva>(this.bookings);
     this.bookingList.paginator = this.paginator;
-    console.log(this.bookingList);
   }
 
   bookingDetails(hotel: Hotel) {
     this.bookingDetailService.open(DetailsComponent, {
-      width: '700px',
+      width: '800px',
       data: hotel,
     });
   }

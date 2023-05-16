@@ -1,0 +1,43 @@
+@import "styles/utilities/colors";
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+
+.card {
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.primary-btn {
+  height: 50px;
+  width: 130px;
+  background-color: $carmine-pink !important;
+  color: $white !important;
+}
+
+.action-button {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $mulled-whine;
+}
+
+.title-card {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: $mulled-whine;
+}
+
+img {
+  margin: 10px auto;
+  align-self: center;
+  width: 80%;
+}

@@ -1,1 +1,26 @@
-<p>reservation-data works!</p>
+<h3 mat-dialog-title class="title">Seleccione la habitacion de preferencia</h3>
+<mat-dialog-content class="container">
+  <div *ngFor="let room of hotel.habitaciones">
+    <mat-card class="card" *ngIf="room.habilitada">
+      <mat-card-header>
+        <mat-card-title class="title-card">{{ room.ubicacion }}</mat-card-title>
+        <mat-card-subtitle
+          >Capacidad: {{ room.maxPersonas }} persona(s)</mat-card-subtitle
+        >
+      </mat-card-header>
+      <img mat-card-image src="assets/images/habitacion1.jpg" />
+      <mat-card-content>
+        <p><b>Costo por noche:</b> ${{ room.costoBase + room.impuestos }}</p>
+      </mat-card-content>
+      <mat-card-actions class="action-button">
+        <button
+          mat-button
+          class="primary-btn"
+          (click)="setReservationData(hotel, room)"
+        >
+          Reservar
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</mat-dialog-content>

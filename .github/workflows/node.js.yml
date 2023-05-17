@@ -33,5 +33,5 @@ jobs:
       run: |
         echo "${{ env.SSH_PRIVATE_KEY }}" > ssh_key
         chmod 600 ssh_key
-        sshpass -p ${{ secrets.SSH_PRIVATE_KEY }} ssh -o StrictHostKeyChecking=no diegoCalvera@20.172.149.117 "rm -rf /var/www/hotel-app/*"
-        sshpass -p ${{ secrets.SSH_PRIVATE_KEY }} scp -r -o  StrictHostKeyChecking=no ./dist/hotel-app/* diegoCalvera@20.172.149.117:/var/www/hotel-app/
+        sshpass -p ${{ secrets.SSH_PRIVATE_KEY }} ssh -o StrictHostKeyChecking=no ${{ env.SSH_PRIVATE_IP_SERVER }} "rm -rf /var/www/hotel-app/*"
+        sshpass -p ${{ secrets.SSH_PRIVATE_KEY }} scp -r -o  StrictHostKeyChecking=no ./dist/hotel-app/* ${{ env.SSH_PRIVATE_IP_SERVER }}:/var/www/hotel-app/

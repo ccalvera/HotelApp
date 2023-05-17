@@ -3,11 +3,7 @@
     <img src="assets/images/logo-menu.png" alt="Logo" />
     <h4>¡Te damos la bienvenida!</h4>
 
-    <form
-      class="flex-column login-form"
-      [formGroup]="loginForm"
-      (ngSubmit)="onSubmit()"
-    >
+    <form class="flex-column login-form" [formGroup]="loginForm">
       <mat-form-field appearance="fill">
         <mat-label>Corre electrónico</mat-label>
         <input matInput type="email" formControlName="email" />
@@ -16,7 +12,7 @@
         <mat-label>Contraseña</mat-label>
         <input matInput type="password" formControlName="password" />
       </mat-form-field>
-      <button type="submit" class="btn-lg" mat-raised-button color="primary">
+      <button (click)="onSubmit()" class="btn-lg" mat-raised-button>
         Ingresar
       </button>
     </form>

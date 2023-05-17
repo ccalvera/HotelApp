@@ -9,20 +9,6 @@
   width: 100%;
 }
 
-@media screen and (max-width: 768px) {
-  .cover {
-    display: none !important;
-  }
-  img {
-    height: 200px;
-    width: 80%;
-  }
-
-  .card {
-    width: 80%;
-  }
-}
-
 img {
   display: flex;
   align-self: center;
@@ -82,4 +68,21 @@ h4 {
   height: 50px;
   background-color: $carmine-pink !important;
   color: $white !important;
+}
+
+@media (max-width: 767px) {
+  .cover {
+    display: none !important;
+  }
+  img {
+    height: 100%;
+    width: 200px;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    width: 80%;
+  }
 }

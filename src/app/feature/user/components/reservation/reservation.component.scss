@@ -1,4 +1,7 @@
 @import "styles/utilities/colors";
+
+/* Estilos para dispositivos móviles */
+
 header {
   background-color: $cadet-grey;
   width: 100%;
@@ -13,6 +16,11 @@ img {
   width: 150px;
 }
 
+footer {
+  margin-top: 200px;
+  text-align: center;
+  margin-bottom: 20px;
+}
 h3 {
   margin-top: 30px;
   font-size: 2rem;
@@ -20,16 +28,8 @@ h3 {
   color: $mulled-whine;
 }
 
-@media screen and (min-width: 1281px) {
-  body {
-    margin: 50px 500px;
-  }
-}
-
-@media screen and (max-width: 1280px) {
-  body {
-    margin: 50px 200px;
-  }
+.body {
+  margin: 50px 100px;
 }
 
 .subtitle {
@@ -46,6 +46,7 @@ h3 {
 .data-booking {
   display: flex;
   margin-top: 50px;
+
   justify-content: center;
   gap: 20px;
 }
@@ -71,5 +72,45 @@ h3 {
   & > i {
     color: #60686b;
     font-size: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  header {
+    gap: 10px;
+  }
+  img {
+    width: 80px;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  .info-text {
+    font-size: 1rem;
+  }
+  .data-booking {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  mat-form-field {
+    width: 260px;
+  }
+  .btn-lg {
+    align-self: center;
+    width: 190px;
+    height: 40px;
+    margin-bottom: 20px;
+  }
+  footer {
+    margin-top: 10px;
+  }
+
+  .body {
+    margin: 10px 10px;
   }
 }

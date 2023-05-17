@@ -1,12 +1,14 @@
 import { Passenger } from '@admin/shared/interfaces/passenger';
 import { Component, Inject } from '@angular/core';
 import {
+  FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { SweetAlertService } from '@core/services/sweet-alert.service';
 
 type InitialData = {
   id: number;
@@ -33,6 +35,7 @@ export class FormDataComponent {
   emergencyContactForm!: FormGroup;
   passengers: Passenger[] = [];
   initialData!: InitialData;
+  passengerForm!: FormGroup;
 
   documentType: Document[] = [
     { value: 'Cedula de ciudadania', viewValue: 'Cedula de ciudadania' },
@@ -49,6 +52,7 @@ export class FormDataComponent {
   }
 
   constructor(
+    private readonly sweetAlertService: SweetAlertService,
     private readonly formBuilder: FormBuilder,
     private readonly dialogRef: MatDialogRef<FormDataComponent>,
     @Inject(MAT_DIALOG_DATA) public data: InitialData
@@ -58,12 +62,40 @@ export class FormDataComponent {
 
   ngOnInit(): void {
     this.validateEmergencyForm();
+    this.initForm();
+  }
+
+  createFormItem(): FormGroup {
+    return this.formBuilder.group({
+      tipoDocumento: ['', Validators.required],
+      documento: [undefined, Validators.required],
+      nombres: ['', Validators.required],
+      apellidos: ['', Validators.required],
+      fechaNacimiento: ['', Validators.required],
+      genero: ['', Validators.required],
+      email: ['', Validators.required],
+      telefono: ['', Validators.required],
+    });
+  }
+
+  addFormItem() {
+    const formArray = this.passengerForm.get('formArray') as FormArray;
+    formArray.push(this.createFormItem());
+  }
+
+  initForm() {
+    this.passengerForm = this.formBuilder.group({
+      formArray: this.formBuilder.array([]),
+    });
+    for (let index = 0; index < this.initialData.cantidadPersonas; index++) {
+      this.addFormItem();
+    }
   }
 
   validateEmergencyForm() {
     this.emergencyContactForm = this.formBuilder.group({
-      nombreCompleto: new FormControl('', Validators.required),
-      telefono: new FormControl('', Validators.required),
+      nombreCompleto: new FormControl(undefined, Validators.required),
+      telefono: new FormControl(undefined, Validators.required),
     });
   }
 
@@ -76,10 +108,37 @@ export class FormDataComponent {
       fechaFin: this.initialData.fechaFin,
       cantidadPersonas: this.initialData.cantidadPersonas,
       valor: this.initialData.valor,
-      pasajeros: new FormControl([], Validators.required),
-      contactoEmergencia: this.emergencyContactForm,
+      pasajeros: new FormControl([]),
+      contactoEmergencia: new FormControl([]),
     });
   }
 
-  reserve() {}
+  reserve() {
+    if (this.emergencyContactForm.invalid) {
+      this.emergencyContactForm.markAllAsTouched();
+      this.sweetAlertService.fireToast({
+        title: 'Ingrese todos los datos',
+        icon: 'warning',
+      });
+      return;
+    }
+    if (this.passengerForm.invalid) {
+      this.sweetAlertService.fireToast({
+        title: 'Ingrese todos los datos',
+        icon: 'warning',
+      });
+      this.passengerForm.markAllAsTouched();
+      return;
+    }
+
+    this.validateForm();
+    this.reservationForm
+      .get('pasajeros')
+      ?.setValue(this.passengerForm.value.formArray);
+    this.reservationForm
+      .get('contactoEmergencia')
+      ?.setValue([this.emergencyContactForm.value]);
+
+    this.dialogRef.close(this.reservationForm.value);
+  }
 }

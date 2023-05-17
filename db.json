@@ -42,6 +42,33 @@
               "telefono": 101023
             }
           ]
+        },
+        {
+          "id": null,
+          "hotel": "Hotel Castillo Real",
+          "ubicacion": "Piso 1, Habitación 101",
+          "fechaInicio": "2023-05-17T05:00:00.000Z",
+          "fechaFin": "2023-05-18T05:00:00.000Z",
+          "cantidadPersonas": 1,
+          "valor": 120,
+          "pasajeros": [
+            {
+              "tipoDocumento": "Cedula de extranjeria",
+              "documento": "3421312",
+              "nombres": "Diego",
+              "apellidos": "calvera",
+              "fechaNacimiento": "2023-05-02T05:00:00.000Z",
+              "genero": "Masculino",
+              "email": "aaaa@aaaa",
+              "telefono": "2312412"
+            }
+          ],
+          "contactoEmergencia": [
+            {
+              "nombreCompleto": "mary",
+              "telefono": "23432412"
+            }
+          ]
         }
       ],
       "habitaciones": [
@@ -158,6 +185,23 @@
           "habilitada": true,
           "maxPersonas": 2,
           "ubicacion": "Piso 2, Habitación 202"
+        }
+      ]
+    },
+    {
+      "id": "nr6xFP2",
+      "nombre": "nuevo",
+      "ubicacion": "pereira",
+      "habilitado": true,
+      "reservas": [],
+      "habitaciones": [
+        {
+          "costoBase": 111,
+          "impuestos": 222,
+          "tipo": "sss",
+          "habilitada": true,
+          "maxPersonas": 2,
+          "ubicacion": "sadaa"
         }
       ]
     }

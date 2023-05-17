@@ -13,7 +13,10 @@ export class HotelService {
     return this.http.doGet<Hotel[]>(`${environment.API}hoteles`);
   }
 
-  public reserve(hotel: Hotel) {
-    return this.http.doPut(`${environment.API}hoteles`, hotel);
+  public editHotel(hotel: Hotel) {
+    return this.http.doPut<Hotel, Hotel>(
+      `${environment.API}hoteles/${hotel.id}`,
+      hotel
+    );
   }
 }

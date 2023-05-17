@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  API: 'https://my-json-server.typicode.com/ccalvera/hoteldb/',
+  API: 'http://localhost:3000/',
 };

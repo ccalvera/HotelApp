@@ -8,6 +8,7 @@
 
 .card {
   max-width: 400px;
+  height: 400px;
   margin-bottom: 20px;
 }
 
@@ -40,4 +41,27 @@ img {
   margin: 10px auto;
   align-self: center;
   width: 80%;
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 1.1rem;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .title-card {
+    font-size: 1rem;
+  }
+  .mdc-dialog__title {
+    padding: 0 13px 5px 13px;
+  }
+  .card {
+    height: 300px;
+  }
+  .primary-btn {
+    height: 25px;
+    width: 100px;
+  }
 }

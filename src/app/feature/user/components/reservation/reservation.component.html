@@ -2,7 +2,7 @@
   <img src="assets/images/logo-menu-no-text.png" alt="Menu logo" />
   <h3>HAPPYTRAVEL</h3>
 </header>
-<body>
+<section class="body">
   <p class="subtitle">¡Bienvenido a tu proximo destino!</p>
   <p class="info-text">
     Selecciona los siguientes campos para validar disponibilidad
@@ -48,7 +48,7 @@
       Buscar
     </button>
   </form>
-  <ng-container *ngIf="searched; else noSearch">
+  <ng-container *ngIf="searched">
     <ng-container *ngIf="filteredHotels; else noContent">
       <table mat-table [dataSource]="filteredHotels" class="hotel-table">
         <ng-container matColumnDef="hotel">
@@ -78,6 +78,7 @@
     </ng-container>
   </ng-container>
   <mat-paginator
+    *ngIf="searched && filteredHotels"
     class="paginator"
     [pageSizeOptions]="[5, 10, 20]"
   ></mat-paginator>
@@ -87,7 +88,7 @@
       ingresados.</no-content-table
     >
   </ng-template>
-  <ng-template #noSearch>
-    <no-content-table> Ingrese datos de busqueda.</no-content-table>
-  </ng-template>
-</body>
+</section>
+<footer>
+  <a href="/admin">¿Deseas administrar tu hotel?</a>
+</footer>

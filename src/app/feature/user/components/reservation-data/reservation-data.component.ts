@@ -74,7 +74,7 @@ export class ReservationDataComponent {
       })
       .afterClosed()
       .subscribe((reservation: Reserva) => {
-        console.log(reservation);
+        this.dialogRef.close(reservation);
       });
   }
 }

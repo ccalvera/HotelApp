@@ -12,6 +12,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { SweetAlertService } from '@core/services/sweet-alert.service';
 import { HotelService } from '@user/shared/services/hotel.service';
 import { ReservationDataComponent } from '../reservation-data/reservation-data.component';
+import { Reserva } from '@admin/shared/interfaces/reserva';
 
 @Component({
   selector: 'app-reservation',
@@ -101,11 +102,15 @@ export class ReservationComponent implements OnInit {
         data: [hotel, this.reservationForm.value],
       })
       .afterClosed()
-      .subscribe((hotel: Hotel) => {
-        if (hotel) {
-          this.hotelService.reserve(hotel);
+      .subscribe((reservation: Reserva) => {
+        if (reservation) {
+          hotel.reservas.push(reservation);
+          this.hotelService.editHotel(hotel).subscribe((res) => {
+            console.log(res);
+          });
           this.sweetAlertService.fireToast({
             title: 'Reserva realizada con éxito',
+            text: 'Detalles enviados al correo electronico',
             icon: 'success',
           });
         }

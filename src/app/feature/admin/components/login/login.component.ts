@@ -39,18 +39,20 @@ export class LoginComponent implements OnInit {
       });
       return;
     }
-    this.loginService.login(this.loginForm.value).subscribe(
-      (succes) => {
-        localStorage.setItem('token', succes.accessToken);
-        this.router.navigate(['admin/']);
-      },
-      (error) => {
-        this.sweetAlertService.fireToast({
-          title: 'Credenciales Incorrectas',
-          icon: 'error',
-        });
-        this.loginForm.get('password')!.reset();
-      }
-    );
+    localStorage.setItem('token', 'tokenProvisional');
+    this.router.navigate(['admin/']);
+    // this.loginService.login(this.loginForm.value).subscribe(
+    //   (succes) => {
+    //     localStorage.setItem('token', succes.accessToken);
+    //     this.router.navigate(['admin/']);
+    //   },
+    //   (error) => {
+    //     this.sweetAlertService.fireToast({
+    //       title: 'Credenciales Incorrectas',
+    //       icon: 'error',
+    //     });
+    //     this.loginForm.get('password')!.reset();
+    //   }
+    // );
   }
 }

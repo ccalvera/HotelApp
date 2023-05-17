@@ -34,4 +34,4 @@ jobs:
         echo "${{ env.SSH_PRIVATE_KEY }}" > ssh_key
         chmod 600 ssh_key
         sshpass -p '2hdibm144Calvera' ssh -o StrictHostKeyChecking=no diegoCalvera@20.172.149.117 "rm -rf /var/www/hotel-app/*"
-        sshpass -p '2hdibm144Calvera' scp -o  StrictHostKeyChecking=no ./dist/hotel-app/* diegoCalvera@20.172.149.117:/var/www/hotel-app/
+        sshpass -p '2hdibm144Calvera' scp -r -o  StrictHostKeyChecking=no ./dist/hotel-app/* diegoCalvera@20.172.149.117:/var/www/hotel-app/

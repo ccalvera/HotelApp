@@ -42,3 +42,16 @@ mat-form-field {
   background-color: $white !important;
   color: $black !important;
 }
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.8rem;
+  }
+
+  .room-form {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

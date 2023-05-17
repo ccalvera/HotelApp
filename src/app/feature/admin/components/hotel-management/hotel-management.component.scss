@@ -68,3 +68,26 @@
   margin-top: 11px;
   gap: 20px;
 }
+
+@media (max-width: 767px) {
+  .content {
+    margin: 8px 8px;
+  }
+  .title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 1.8rem;
+  }
+  .actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 15px 0;
+  }
+  .container-table {
+    position: relative;
+    min-height: 200px;
+    max-height: 400px;
+    overflow: auto !important;
+  }
+}

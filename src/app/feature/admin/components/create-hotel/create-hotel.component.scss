@@ -119,3 +119,18 @@ span {
     font-size: 16px;
   }
 }
+
+@media (max-width: 767px) {
+  .content {
+    margin: 8px 8px;
+  }
+  .title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 1.8rem;
+  }
+  .btn-lg {
+    width: 120px;
+    height: 45px;
+  }
+}

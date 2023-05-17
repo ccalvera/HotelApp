@@ -46,3 +46,21 @@ p {
 .booking-data {
   color: $mulled-whine;
 }
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.8rem;
+  }
+
+  .content,
+  .passengers {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .dialog {
+    max-height: 700px;
+  }
+}

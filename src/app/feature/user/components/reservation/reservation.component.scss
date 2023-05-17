@@ -29,7 +29,7 @@ h3 {
 }
 
 .body {
-  margin: 50px 100px;
+  margin: 50px 150px;
 }
 
 .subtitle {
@@ -46,9 +46,12 @@ h3 {
 .data-booking {
   display: flex;
   margin-top: 50px;
-
   justify-content: center;
   gap: 20px;
+  padding: 20px 10px 0 10px;
+  background-color: gainsboro;
+  margin-bottom: 10px;
+  border-radius: 6px;
 }
 
 .btn-lg {
@@ -94,6 +97,8 @@ h3 {
   .data-booking {
     display: flex;
     gap: 0;
+    padding: 0;
+    padding-top: 10px;
     flex-wrap: wrap;
     margin-top: 20px;
   }
